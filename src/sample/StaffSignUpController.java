@@ -40,14 +40,28 @@ public class StaffSignUpController {
 
     @FXML
     void initialize() {
-        DatabaseHandler dbHandler = new DatabaseHandler();
+
         inButton.setOnAction(event -> {
             try {
-                dbHandler.signUpStaff(fullNameField.getText(), phoneNumberField.getText(), addressField.getText(),
-                        dutyField.getText(), signUpLoginField.getText(), signUpPasswordField.getText());
-            } catch (SQLException | ClassNotFoundException throwables) {
+                signUpNewStaff();
+            } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
         });
+    }
+    public void signUpNewStaff() throws SQLException, ClassNotFoundException {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        String fullname = fullNameField.getText();
+        String phonenumber = phoneNumberField.getText();
+        String address = addressField.getText();
+        String duty = dutyField.getText();
+        String login = signUpLoginField.getText();
+        String password = signUpPasswordField.getText();
+
+        Staff staff = new Staff(fullname, phonenumber, address, duty, login, password);
+
+        dbHandler.signUpStaff(staff);
     }
 }

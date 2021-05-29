@@ -40,17 +40,29 @@ public class ClientSignUpController {
 
     @FXML
     void initialize() {
-        DatabaseHandler dbHandler = new DatabaseHandler();
+
         inButton.setOnAction(event -> {
             try {
-                dbHandler.signUpClient(fullNameField.getText(), phoneNumberField.getText(), cardNumberField.getText(),
-                        typeOfFuelField.getText(), clientSignUpLoginField.getText(), clientSignUpPasswordField.getText());
-            } catch (SQLException | ClassNotFoundException throwables) {
+                signUpNewClient();
+            } catch (SQLException throwables) {
                 throwables.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
         });
+    }
+    public void signUpNewClient() throws SQLException, ClassNotFoundException {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        String fullname = fullNameField.getText();
+        String phonenumber = phoneNumberField.getText();
+        String cardnumber = cardNumberField.getText();
+        String fuel = typeOfFuelField.getText();
+        String login = clientSignUpLoginField.getText();
+        String password = clientSignUpPasswordField.getText();
 
+        Client client = new Client(fullname, phonenumber, cardnumber, fuel, login, password);
 
+        dbHandler.signUpClient(client);
     }
 
 }
