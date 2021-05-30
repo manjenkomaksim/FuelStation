@@ -10,6 +10,10 @@ public class Client extends User{
         this.fuel = fuel;
     }
 
+    public Client() {
+        super();
+    }
+
     public String getCardnumber() {
         return cardnumber;
     }

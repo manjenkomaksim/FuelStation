@@ -18,4 +18,11 @@ public class Const {
     public static final String STAFF_DUTY = "duty";
     public static final String STAFF_LOGIN = "login";
     public static final String STAFF_PASSWORD = "password";
+
+    public static final String FS_TABLE = "fuel_station";
+    public static final String FS_ID = "idfuel_station";
+    public static final String FS_FUELTYPE = "fueltype";
+    public static final String FS_PRICE = "price";
+    public static final String FS_AMOUNT = "amount";
+
 }

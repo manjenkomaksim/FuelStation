@@ -1,5 +1,6 @@
 package sample;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DatabaseHandler extends Configs {
     Connection dbConnection;
@@ -41,5 +42,79 @@ public class DatabaseHandler extends Configs {
             staffPreparedStatement.setString(6, staff.getPassword());
 
             staffPreparedStatement.executeUpdate();
+    }
+
+    public ResultSet getClient(Client client) throws SQLException, ClassNotFoundException {
+        ResultSet resSet = null;
+        String select = "SELECT * FROM " + Const.CLIENTS_TABLE + " WHERE " + Const.CLIENTS_LOGIN + "=? AND "
+                + Const.CLIENTS_PASSWORD + "=?";
+        PreparedStatement preparedStatement = getDbConnection().prepareStatement(select);
+
+        preparedStatement.setString(1, client.getLogin());
+        preparedStatement.setString(2, client.getPassword());
+
+        resSet = preparedStatement.executeQuery();
+
+        return resSet;
+
+    }
+    public ResultSet getStaff(Staff staff) throws SQLException, ClassNotFoundException {
+        ResultSet resSet = null;
+        String select = "SELECT * FROM " + Const.STAFF_TABLE + " WHERE " + Const.STAFF_LOGIN + "=? AND "
+                + Const.STAFF_PASSWORD + "=?";
+        PreparedStatement preparedStatement = getDbConnection().prepareStatement(select);
+
+        preparedStatement.setString(1, staff.getLogin());
+        preparedStatement.setString(2, staff.getPassword());
+
+        resSet = preparedStatement.executeQuery();
+
+        return resSet;
+
+    }
+    public String getPopularFuel() throws SQLException, ClassNotFoundException {
+        ResultSet resSet = null;
+        ArrayList<String> fuelList = new ArrayList<>();
+        ArrayList<Integer> count = new ArrayList<>();
+
+        String select = "SELECT * FROM " + Const.CLIENTS_TABLE;
+        PreparedStatement preparedStatement = getDbConnection().prepareStatement(select);
+        resSet = preparedStatement.executeQuery();
+        while (resSet.next()){
+            fuelList.add(resSet.getString("fueltype"));
+        }
+        int countFuel = 1;
+        for (int i = 0; i < fuelList.size()-1; i++) {
+            for (int j = i+1; j < fuelList.size() ; j++) {
+                if (fuelList.get(i).equals(fuelList.get(j))){
+                    countFuel++;
+                }
+            }
+            count.add(countFuel);
+            countFuel=1;
+        }
+        int mostPopularFuelIndex = 0;
+        int max = 0;
+        for (int i = 0; i < count.size(); i++) {
+            if (count.get(i)>max){
+                max = count.get(i);
+                mostPopularFuelIndex = i;
+            }
+        }
+        return fuelList.get(mostPopularFuelIndex);
+
+    }
+
+    public void addNewFuel(Fuel fuel) throws SQLException, ClassNotFoundException {
+        String insert = "INSERT INTO " + Const.FS_TABLE + "("  + Const.FS_FUELTYPE +
+                "," + Const.FS_PRICE + "," + Const.FS_AMOUNT + ")" +
+                "VALUES(?,?,?)";
+        PreparedStatement preparedStatement = getDbConnection().prepareStatement(insert);
+
+        preparedStatement.setString(1, fuel.getTypeOfFuel());
+        preparedStatement.setString(2, fuel.getPrice());
+        preparedStatement.setString(3, fuel.getAmount());
+
+        preparedStatement.executeUpdate();
     }
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="840.0" style="-fx-background-color: #eae3e3;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ClientMenuController">
+    <children>
+        <Label layoutX="666.0" layoutY="468.0" prefHeight="34.0" prefWidth="160.0" text="\@Maksim_Manzhenko" textAlignment="CENTER" textOverrun="CLIP">
+            <font>
+                <Font name="Franklin Gothic Demi" size="16.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="-8.0" prefHeight="118.0" prefWidth="849.0" style="-fx-background-color: #DAA520;">
+            <children>
+                <Label layoutX="311.0" layoutY="28.0" prefHeight="62.0" prefWidth="228.0" text="MyFuelStation" textAlignment="CENTER" textOverrun="CLIP">
+                    <font>
+                        <Font name="Franklin Gothic Demi" size="35.0" />
+                    </font>
+                </Label>
+            <Button fx:id="exitToMainButton" layoutX="24.0" layoutY="14.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="98.0" style="-fx-background-color: #2E3348;" text="To Main" textAlignment="CENTER" textFill="#eae3e3">
+               <font>
+                  <Font name="Franklin Gothic Demi" size="18.0" />
+               </font>
+            </Button>
+            </children>
+        </AnchorPane>
+      <Button fx:id="mostPopularFuelButton" layoutX="317.0" layoutY="193.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: #2E3348;" text="Most Popular Fuel" textAlignment="CENTER" textFill="#eae3e3">
+         <font>
+            <Font name="Franklin Gothic Demi" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="averagePrice" layoutX="317.0" layoutY="302.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: #2E3348;" text="Average Price" textAlignment="CENTER" textFill="#eae3e3">
+         <font>
+            <Font name="Franklin Gothic Demi" size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="mostPopularFuelLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="314.0" layoutY="238.0" prefHeight="34.0" prefWidth="211.0" textAlignment="CENTER">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="22.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

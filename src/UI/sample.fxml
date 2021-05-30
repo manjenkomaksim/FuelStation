@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="840.0" style="-fx-background-color: #eae3e3;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <TextField fx:id="loginField" layoutX="313.0" layoutY="196.0" prefHeight="34.0" prefWidth="214.0" promptText="Login" style="-fx-background-radius: 5;">
+      <TextField fx:id="signInLoginField" layoutX="313.0" layoutY="196.0" prefHeight="34.0" prefWidth="214.0" promptText="Login" style="-fx-background-radius: 5;">
          <font>
             <Font size="14.0" />
          </font></TextField>
@@ -37,7 +37,7 @@
             <Font name="Franklin Gothic Demi" size="18.0" />
          </font>
       </Button>
-      <PasswordField fx:id="passwordField" layoutX="313.0" layoutY="248.0" prefHeight="34.0" prefWidth="214.0" promptText="Password" style="-fx-background-radius: 5;">
+      <PasswordField fx:id="signInPasswordField" layoutX="313.0" layoutY="248.0" prefHeight="34.0" prefWidth="214.0" promptText="Password" style="-fx-background-radius: 5;">
          <font>
             <Font size="14.0" />
          </font>

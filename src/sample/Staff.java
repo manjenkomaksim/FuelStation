@@ -10,6 +10,10 @@ public class Staff extends User{
         this.duty = duty;
     }
 
+    public Staff() {
+
+    }
+
     public String getAddress() {
         return address;
     }
