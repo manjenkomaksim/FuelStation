@@ -23,6 +23,8 @@ public class StaffMenuController {
     @FXML
     private Button getClientByFuelButton;
 
+
+
     @FXML
     void initialize() {
         exitToMainButton.setOnAction(event -> {
@@ -45,6 +47,39 @@ public class StaffMenuController {
             addNewFuelButton.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("../UI/addingNewFuel.fxml"));
+            try {
+                loader.load();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+            Parent root = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setTitle("MyFuelStation");
+            stage.setScene(new Scene(root));
+            stage.show();
+        });
+
+        getStaffListButton.setOnAction(event -> {
+            getStaffListButton.getScene().getWindow().hide();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../UI/getStaffList.fxml"));
+
+            try {
+                loader.load();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+            Parent root = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setTitle("MyFuelStation");
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+        });
+        getClientByFuelButton.setOnAction(event -> {
+            getClientByFuelButton.getScene().getWindow().hide();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../UI/getByFuel.fxml"));
+
             try {
                 loader.load();
             } catch (IOException ioException) {

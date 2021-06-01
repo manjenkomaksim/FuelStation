@@ -31,7 +31,7 @@
             <Font name="Franklin Gothic Demi" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="averagePrice" layoutX="317.0" layoutY="302.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: #2E3348;" text="Average Price" textAlignment="CENTER" textFill="#eae3e3">
+      <Button fx:id="averagePrice" layoutX="317.0" layoutY="290.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: #2E3348;" text="Average Price" textAlignment="CENTER" textFill="#eae3e3">
          <font>
             <Font name="Franklin Gothic Demi" size="18.0" />
          </font>
@@ -41,5 +41,15 @@
             <Font name="Franklin Gothic Demi Cond" size="22.0" />
          </font>
       </Label>
+      <Label fx:id="averagePriceField" alignment="CENTER" contentDisplay="CENTER" layoutX="311.0" layoutY="339.0" prefHeight="34.0" prefWidth="211.0" textAlignment="CENTER">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="22.0" />
+         </font>
+      </Label>
+      <Button fx:id="getStaffByDutyButton" layoutX="320.0" layoutY="385.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: #2E3348;" text="Get Staff By Duty" textAlignment="CENTER" textFill="#eae3e3">
+         <font>
+            <Font name="Franklin Gothic Demi" size="18.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

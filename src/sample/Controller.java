@@ -52,8 +52,14 @@ public class Controller {
                     e.printStackTrace();
                 }
             }
-            else
-                System.out.println("Field is empty");
+            else{
+                Shake userLoginAnim = new Shake(signInLoginField);
+                Shake userPasswordAnim = new Shake(signInPasswordField);
+                userLoginAnim.playAnim();
+                userPasswordAnim.playAnim();
+                signInLoginField.clear();
+                signInPasswordField.clear();
+            }
         });
 
         mainSignUpButton.setOnAction(event -> {

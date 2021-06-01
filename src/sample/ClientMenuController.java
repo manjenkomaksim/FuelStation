@@ -5,6 +5,8 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.Scanner;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,6 +34,12 @@ public class ClientMenuController {
 
     @FXML
     private Button averagePrice;
+
+    @FXML
+    private Label averagePriceField;
+
+    @FXML
+    private Button getStaffByDutyButton;
 
     @FXML
     void initialize() {
@@ -63,6 +71,35 @@ public class ClientMenuController {
             }
 
 
+        });
+
+        averagePrice.setOnAction((event -> {
+            DatabaseHandler dbHandler = new DatabaseHandler();
+
+            try {
+                averagePriceField.setText(Double.toString(dbHandler.getAveragePrice()) + " for 1 liter");
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }));
+
+         getStaffByDutyButton.setOnAction(event -> {
+            getStaffByDutyButton.getScene().getWindow().hide();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../UI/getStaffByDuty.fxml"));
+            try {
+                loader.load();
+
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+            Parent root = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setTitle("MyFuelStation");
+            stage.setScene(new Scene(root));
+            stage.show();
         });
 
 
